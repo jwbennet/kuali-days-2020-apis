@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Hands On with Docker & Kubernetes</title>
+
+    <!-- <link href="//assets.iu.edu/favicon.ico" rel="shortcut icon" type="image/x-icon"/> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto Slab">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/kuali-days.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "css/print/pdf.css"
+        : "css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section data-background-image="img/title-background.jpg" class="largefooter">
+              <h3 style="margin-top: 5%; margin-bottom: 3em; text-align: left; color: white;">Making the Most of Your APIs</h3>
+              <div style="float: left; text-align: left; color: white">
+                <!-- <p style="font-size: smaller;">https://bit.ly/32LT4M6</p> -->
+                <strong>James Bennett</strong><br /><small>Manager, Enterprise Systems Integration<br />Indiana University</small>
+              </div>
+          </section>
+          <section>
+            <h3>Who am I?</h3>
+            <ul>
+              <li>Software engineer turned manager</li>
+              <li>My team primarily uses Java & Node</li>
+              <li>Been working with Kuali software (mostly Rice) since 2010</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Agenda</h3>
+            <div>
+              Things to consider when...
+            </div>
+            <ul>
+              <li>Creating APIs</li>
+              <li>Consuming APIs</li>
+              <li>Evolving technology choices</li>
+              <li>Q&A</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section data-background-image="img/green-divider.jpg">
+            <h2 style="color: white;">Creating APIs</h2>
+          </section>
+        </section>
+        <section>
+          <section data-background-image="img/teal-divider.jpg">
+            <h2 style="color: white;">Consuming APIs</h2>
+          </section>
+        </section>
+        <section>
+          <section data-background-image="img/blue-divider.jpg">
+            <h2 style="color: white;">Evolving Technology Choices</h2>
+          </section>
+        </section>
+        <section data-background-image="img/purple-divider.jpg">
+          <h2 style="color: white;">Questions?</h2>
+        </section>
+        <section data-background-image="img/thank-you.jpg" class="largefooter">
+          <h2 style="color: white; text-transform: none; text-align: left; text-shadow: none;">Thank you.</h2>
+          <p style="float: left; color: white; text-align: left; font-size: smaller; text-shadow: none;">James Bennett - jawbenne@iu.edu</p>
+          <p class="fragment" style="width: 70%; float: left; color: #ccc; text-align: left; font-size: .7em; text-shadow: none;">Please provide us with valuable feedback to ensure high-quality programming for the next Kuali Days!<br />Complete the survey for this session in the Kuali Days app.</p>
+        </section>
+        <div id="footer" class="footer" style="display: none;">
+          <img src="img/kd-logo.png" />
+        </div>
+        <div id="large-footer" class="footer" style="display: none;">
+          <img src="img/kd-logo-large.png" />
+        </div>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        history: true,
+        controls: true,
+        progress: true,
+        dependencies: [
+          { src: "plugin/markdown/marked.js" },
+          { src: "plugin/markdown/markdown.js" },
+          { src: "plugin/notes/notes.js", async: true },
+          { src: "plugin/highlight/highlight.js", async: true }
+        ]
+      });
+      Reveal.addEventListener( 'slidechanged', function( event ) {
+        var suppressFooter = event.currentSlide.classList.contains('nofooter');
+        var largeFooter = event.currentSlide.classList.contains('largefooter');
+        var hasBackgroundImage = event.currentSlide.attributes.getNamedItem('data-background-image') !== null;
+        if(largeFooter) {
+          document.getElementById('footer').style.display = 'none';
+          document.getElementById('large-footer').style.display = 'flex';
+        } else if(suppressFooter || hasBackgroundImage) {
+					document.getElementById('footer').style.display = 'none';
+          document.getElementById('large-footer').style.display = 'none';
+				} else {
+          document.getElementById('footer').style.display = 'flex';
+          document.getElementById('large-footer').style.display = 'none';
+				}
+			} );
+    </script>
+  </body>
+</html>
