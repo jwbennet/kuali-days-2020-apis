@@ -64,24 +64,126 @@
           </section>
           <section>
             <h3>Microservices</h3>
+            <blockquote cite="https://www.slideshare.net/adriancockcroft/dockercon-state-of-the-art-in-microservices" style="width: 80%; box-shadow: none;">
+              &ldquo;Loosely coupled service-oriented architecture with bounded contexts.&rdquo;
+              <footer>- <cite>Adrian Cockroft</cite></footer>
+            </blockquote>
           </section>
           <section>
-            <h3>General Purpose APIs</h3>
+            <h3>General Advice</h3>
+            <ul>
+              <li class="fragment fade-in-then-semi-out">Design for future use</li>
+              <li class="fragment fade-in-then-semi-out">Consider your clients</li>
+              <li class="fragment fade-in-then-semi-out">APIs should be discoverable</li>
+            </ul>
           </section>
           <section>
             <h3>Richardson Maturity Model</h3>
+            <img src="https://martinfowler.com/articles/images/richardsonMaturityModel/overview.png" />
           </section>
-          <section>
+          <section class="nofooter" data-transition="slide-in none-out">
             <h3>OAuth2 for Authn/Authz</h3>
+            <img src="img/authn-authz-001.png" />
           </section>
-          <section>
+          <section class="nofooter" data-transition="none">
+            <h3>OAuth2 for Authn/Authz</h3>
+            <img src="img/authn-authz-002.png" />
+          </section>
+          <section class="nofooter" data-transition="none">
+            <h3>OAuth2 for Authn/Authz</h3>
+            <img src="img/authn-authz-003.png" />
+          </section>
+          <section class="nofooter" data-transition="none">
+            <h3>OAuth2 for Authn/Authz</h3>
+            <img src="img/authn-authz-004.png" />
+          </section>
+          <section class="nofooter" data-transition="none">
+            <h3>OAuth2 for Authn/Authz</h3>
+            <img src="img/authn-authz-005.png" />
+          </section>
+          <section class="nofooter" data-transition="none">
+            <h3>OAuth2 for Authn/Authz</h3>
+            <img src="img/authn-authz-006.png" />
+          </section>
+          <section class="nofooter">
+            <h3>JWTs</h3>
+            <code>
+              <pre>{
+  "nbf": 1582080327,
+  "user_name": "jawbenne",
+  <span class="fragment highlight-current-red">"aud": [
+    "accounts",
+    "workflow",
+  ]</span>,
+  <span class="fragment highlight-current-red">"scope": [
+    "resource-pools",
+    "account-data"
+  ]</span>,
+  "exp": 1582123527,
+  <span class="fragment highlight-current-red">"authorities": [
+    "ROLE_ESI_DEVELOPERS",
+    "ROLE_MYAPP_ADMINISTRATOR",
+    "ROLE_STAFF"
+  ]</span>,
+  "jti": "unique-id",
+  "client_id": "myapp"
+}</pre>
+            </code>
+          </section>
+          <section class="nofooter" data-transition="slide-in none-out">
             <h3>Service Discovery</h3>
+            <img src="img/service-discovery-001.png" style="width: 90%;" />
+          </section>
+          <section class="nofooter" data-transition="none">
+            <h3>Service Discovery</h3>
+            <img src="img/service-discovery-002.png" style="width: 90%;" />
           </section>
           <section>
             <h3>Versioning</h3>
+            <ul>
+              <li class="fragment fade-in-then-semi-out">Avoid breaking changes</li>
+              <li class="fragment fade-in-then-semi-out">Leverage service discovery</li>
+              <li class="fragment fade-in-then-semi-out">Contract testing may help</li>
+              <li class="fragment fade-in-then-semi-out">Log usage of old versions</li>
+            </ul>
+          </section>
+          <section>
+            <h3>URL Versioning</h3>
+            <code>
+              <pre>GET <span class="fragment highlight-red">/v2/processInstances/84739843</span> HTTP/2
+Host: api.workflow.iu.edu
+Content-Type: application/json
+Authorization: Bearer &lt;token here&gt;</pre>
+            </code>
+          </section>
+          <section>
+            <h3>Content Type Versioning</h3>
+            <code>
+              <pre>GET /processInstances/84739843 HTTP/2
+Host: api.workflow.iu.edu
+Content-Type: <span class="fragment highlight-red">application/vnd.workflow.v2+json</span>
+Authorization: Bearer &lt;token here&gt;</pre>
+            </code>
           </section>
           <section>
             <h3>Documentation</h3>
+            <ul>
+              <li class="fragment fade-in-then-semi-out">Avoid statically defined content</li>
+              <li class="fragment fade-in-then-semi-out">Open API Specification (Swagger)</li>
+              <li class="fragment fade-in-then-semi-out">Spring REST Docs</li>
+            </ul>
+          </section>
+          <section class="nofooter" data-transition="slide-in none-out">
+            <h3>Spring REST Docs</h3>
+            <img src="img/restdocs-001.png" />
+          </section>
+          <section class="nofooter" data-transition="none">
+            <h3>Spring REST Docs</h3>
+            <img src="img/restdocs-002.png" />
+          </section>
+          <section class="nofooter" data-transition="none">
+            <h3>Spring REST Docs</h3>
+            <img src="img/restdocs-003.png" />
           </section>
         </section>
         <section>
@@ -89,19 +191,88 @@
             <h2 style="color: white;">Consuming APIs</h2>
           </section>
           <section>
+            <h3>Low Trust Environment</h3>
+            <ul>
+              <li class="fragment fade-in-then-semi-out">Consider failure scenarios</li>
+              <li class="fragment fade-in-then-semi-out">Monitor your integrations</li>
+              <li class="fragment fade-in-then-semi-out">Recover gracefully</li>
+            </ul>
+          </section>
+          <section class="nofooter" data-transition="slide-in none-out">
             <h3>API Gateways</h3>
+            <img src="img/api-gateway-001.png" />
+          </section>
+          <section class="nofooter" data-transition="none">
+            <h3>API Gateways</h3>
+            <img src="img/api-gateway-002.png" />
+          </section>
+          <section class="nofooter" data-transition="none">
+            <h3>API Gateways</h3>
+            <img src="img/api-gateway-003.png" />
+          </section>
+          <section class="nofooter" data-transition="none">
+            <h3>API Gateways</h3>
+            <img src="img/api-gateway-004.png" />
+          </section>
+          <section class="nofooter" data-transition="none">
+            <h3>API Gateways</h3>
+            <img src="img/api-gateway-005.png" />
           </section>
           <section>
             <h3>Feature Flags</h3>
+            <ul>
+              <li class="fragment fade-in-then-semi-out">Decouple deployment from release</li>
+              <li class="fragment fade-in-then-semi-out">Application configuration</li>
+              <li class="fragment fade-in-then-semi-out">Safety backstop</li>
+            </ul>
           </section>
-          <section>
+          <section class="nofooter" data-transition="slide-in none-out">
             <h3>Circuit Breakers</h3>
+            <img src="img/circuit-breaker-001.png" />
           </section>
-          <section>
+          <section class="nofooter" data-transition="none">
+            <h3>Circuit Breakers</h3>
+            <img src="img/circuit-breaker-002.png" />
+          </section>
+          <section class="nofooter" data-transition="none">
+            <h3>Circuit Breakers</h3>
+            <img src="img/circuit-breaker-003.png" />
+          </section>
+          <section class="nofooter" data-transition="none">
+            <h3>Circuit Breakers</h3>
+            <img src="img/circuit-breaker-004.png" />
+          </section>
+          <section class="nofooter" data-transition="none">
             <h3>Health Checks</h3>
+            <img src="img/health-checks-001.png" />
           </section>
-          <section>
+          <section class="nofooter" data-transition="none">
+            <h3>Health Checks</h3>
+            <img src="img/health-checks-002.png" />
+          </section>
+          <section class="nofooter" data-transition="none">
+            <h3>Health Checks</h3>
+            <img src="img/health-checks-003.png" />
+          </section>
+          <section class="nofooter" data-transition="none">
+            <h3>Health Checks</h3>
+            <img src="img/health-checks-004.png" />
+          </section>
+          <section class="nofooter" data-transition="none">
             <h3>Distributed Tracing</h3>
+            <img src="img/tracing-001.png" />
+          </section>
+          <section class="nofooter" data-transition="none">
+            <h3>Distributed Tracing</h3>
+            <img src="img/tracing-002.png" />
+          </section>
+          <section class="nofooter" data-transition="none">
+            <h3>Distributed Tracing</h3>
+            <img src="img/tracing-003.png" />
+          </section>
+          <section class="nofooter" data-transition="none">
+            <h3>Distributed Tracing</h3>
+            <img src="img/tracing-004.png" />
           </section>
         </section>
         <section>
@@ -110,9 +281,18 @@
           </section>
           <section>
             <h3>Microservices</h3>
+            <ul>
+              <li class="fragment fade-in-then-semi-out">Make technology decisions more often</li>
+              <li class="fragment fade-in-then-semi-out">Smaller scale applications</li>
+              <li class="fragment fade-in-then-semi-out">Management strategy needed</li>
+            </ul>
           </section>
           <section>
             <h3>Strangler Applications</h3>
+            <ul>
+              <li class="fragment fade-in-then-semi-out">Expose old functionality with new technology</li>
+              <li class="fragment fade-in-then-semi-out">Allows gradual evolution</li>
+            </ul>
           </section>
         </section>
         <section data-background-image="img/purple-divider.jpg">
